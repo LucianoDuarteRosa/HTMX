@@ -1,14 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Javascript</title>
+    <title>Carregamentos</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+    <script src="scripts.js" defer></script>
   </head>
   <body>
-    <h1>03_TiposDeDadosJS</h1>
-    <script src="scripts.js"></script>
+    <!---só atuliazando o texto da div------>
+    <h1>Aula - 01</h1>
+    <button hx-get="http://localhost:3000/content" hx-target=".targetDiv">Atualizar conteúdo</button>
+    <div class="targetDiv"></div>
+    <hr>
+    <!---alterar o elemento inteiro ou só add o conteudo------>
+
+    <h1>Aula - 02</h1>
+    <button hx-get="http://localhost:3000/newContent" hx-target="#swapContent">Atualizar conteúdo</button>
+    <div id="swapContent"></div>
+
+    <button hx-get="http://localhost:3000/newContent" hx-target="#swapContent" hx-swap="outerHTML">Atualizar conteúdo com swap</button>
+    <hr>
+    <!-----------Qual o posicionamento colocar o retorno------->
+
+    <h1>Aula - 03</h1>
+    
+    <div id="swapArea">
+      <button hx-get="http://localhost:3000/content" hx-target="#swapArea"
+      hx-swap="afterbegin">After Begin
+      </button></br>
+      <button hx-get="http://localhost:3000/content"           hx-target="#swapArea"
+       hx-swap="beforebegin">Before Begin
+      </button></br>
+      <button hx-get="http://localhost:3000/content"           hx-target="#swapArea"
+       hx-swap="afterend">After end
+      </button></br>
+      <button hx-get="http://localhost:3000/content"           hx-target="#swapArea"
+       hx-swap="beforeend">Before end
+      </button></br>
+    </div><hr>
+
+    <!-----Filtar qual informação será retornada-------------->
+
+    <h1>Aula - 04</h1>
+    <button hx-get="http://localhost:3000/subset" hx-target="#result-select"
+    hx-select="#only-this-part">Enviar requisição</button>
+    <div id="result-select"></div><hr>
+
+     <!----------envio de parametros------------>
+
+     <h1>Aula - 05</h1>
+     <button hx-get="http://localhost:3000/advancedParams" hx-target="#result-params"
+     hx-vals='{"lang": "JavaScript", "user": "Luciano"}'
+     hx-params="lang,user">Enviar requisição</button>
+     <div id="result-params"></div><hr>
+
+       <!----------Htmx com json---->
+       <h1>Aula - 05</h1>
+
+       <button hx-get="http://localhost:3000/userData" hx-target="#result-userData"
+       >Enviar requisição</button>
+       <div id="result-userData"></div></br>
+
+       <button id="load-user-data" hx-get="http://localhost:3000/userData" hx-target="#result-userData-2"
+       >Enviar requisição</button>
+       <div id="result-userData-2"></div><hr>
+
+       <!----------Htmx com json---->
+       <h1>Aula - 06</h1>
+
+       <button hx-get="http://localhost:3000/userData" hx-target="#result-userData"
+       >Enviar requisição</button>
+       <div id="result-userData"></div></br>
+
+       <button id="load-user-data" hx-get="http://localhost:3000/userData" hx-target="#result-userData-2"
+       >Enviar requisição</button>
+       <div id="result-userData-2"></div><hr>
+
+       <!----------Atualizando com rolagem---->
+       <h1>Aula - 07</h1>
+        <img src="http://via.placeholder.com/150" hx-get="http://localhost:3000/lazyImage"
+        hx-trigger="revealed"
+        hx-swap="outerHTML"/></br>
+        <img src="http://via.placeholder.com/150" hx-get="http://localhost:3000/lazyImage"
+        hx-trigger="revealed"
+        hx-swap="outerHTML"/></br>
+        <img src="http://via.placeholder.com/150" hx-get="http://localhost:3000/lazyImage"
+        hx-trigger="revealed"
+        hx-swap="outerHTML"/></br>
+        <img src="http://via.placeholder.com/150" hx-get="http://localhost:3000/lazyImage"
+        hx-trigger="revealed"
+        hx-swap="outerHTML"/></br>
+        <img src="http://via.placeholder.com/150" hx-get="http://localhost:3000/lazyImage"
+        hx-trigger="revealed"
+        hx-swap="outerHTML"/></br>        <img src="http://via.placeholder.com/150" hx-get="http://localhost:3000/lazyImage"
+        hx-trigger="revealed"
+        hx-swap="outerHTML"/></br>
+
   </body>
 </html>
  
