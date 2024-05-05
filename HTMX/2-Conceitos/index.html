@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceitos FlundamentaisX</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+    <script src="scripts.js"></script>
+</head>
+<body>
+<!--
+    <h2>Aula 1</h2>
+    <button hx-post="http://localhost:3000/post" hx-target="#result-post">Enviar POST</button>
+    <div id="result-post"></div>
+    <hr/>
+
+    <h2>Aula 2-1</h2>
+    <button hx-put="http://localhost:3000/put" hx-target="#result-put">Enviar PUT</button>
+    <div id="result-put"></div>
+
+    <h2>Aula 2-2</h2>
+    <button hx-delete="http://localhost:3000/delete" hx-target="#result-delete">Enviar DELETE</button>
+    <div id="result-delete"></div>
+    <hr/>
+
+    <h2>Aula 3</h2>
+    <input type="text" 
+    hx-get="http://localhost:3000/trigger" hx-target="#result-trigger"
+    hx-trigger="keyup"/>     
+    <div id="result-trigger"></div>
+    <hr/>
+
+    <h2>Aula 4-1</h2>
+    <button 
+    hx-get="http://localhost:3000/once" hx-target="#result-once"
+    hx-trigger="click once">
+    Clique uma vez
+    </button>
+    <div id="result-once"></div>
+    </br>
+    
+    <h2>Aula 4-2</h2>
+    <button 
+    hx-get="http://localhost:3000/delay" hx-target="#result-delay"
+    hx-trigger="click delay:2000ms">
+    Delay 2 segundos
+    </button>
+    <div id="result-delay"></div>
+    </br>
+
+    <h2>Aula 4-3</h2>
+    <button id="external-trigger">Clique para acionar</button>
+    <button id="trigger-button"
+    hx-get="http://localhost:3000/external" hx-target="#result-external"
+    hx-trigger="click from:#external-trigger">
+    Botão oculto
+    </button>
+    <div id="result-external"></div>
+    <hr/>
+
+    <h2>Aula 5-1</h2>
+    <button 
+    hx-get="http://localhost:3000/control-click" hx-target="#result-control-click"
+    hx-trigger="click[ctrlKey]">
+    Control click
+    </button>
+    <div id="result-control-click"></div>
+    </br>
+
+    <h2>Aula 5-2</h2>
+    <button 
+    hx-get="http://localhost:3000/global-condition" 
+    hx-target="#result-global-condition"
+    hx-trigger="click[checkCondition()]">
+    Trigger com função JS
+    </button>
+    <div id="result-global-condition"></div>
+    <hr/>
+
+    <h2>Aula 6-1</h2>
+    <div
+    hx-get="http://localhost:3000/load" 
+    hx-target="#result-load"
+    hx-trigger="load"
+    ></div>
+    <div id="result-load"></div>
+    </br>
+
+    <div
+    hx-get="http://localhost:3000/revealed" 
+    hx-target="#result-revealed"
+    hx-trigger="revealed"
+    id="div-revealed"
+    ></div>
+    <div id="result-revealed"></div>
+    <hr/>
+
+    <h2>Aula 7</h2>
+    <div 
+    hx-get="http://localhost:3000/polling" 
+    hx-target="#result-polling"
+    hx-trigger="every 5s">
+    </div>
+    <div id="result-polling"></div>
+    <hr/>
+
+    <h2>Aula 8</h2>
+    <button hx-get="http://localhost:3000/progress" hx-target="#result-progress"
+    hx-indicator="#load-indicator"
+    >
+    Enviar requisição</button>
+    <div id="result-progress"></div>
+    <div id="load-indicator">Carregando....</div>
+-->
+    <hr/>
+    <h2>Aula 9</h2>
+    <form hx-post="http://localhost:3000/submit"      hx-target="#result-submit">
+        <input type="text" name="nome" placeholder="Digite seu nome">
+        <input type="email" name="email" placeholder="Digite seu email">
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="result-submit"></div>
+
+    <hr/>
+    <h2>Aula 10</h2>
+    <button hx-delete="http://localhost:3000/delete"      
+    hx-target="#result-delete"
+    hx-confirm="Tem certeza que deseja excluir o registro?"
+    type="submit">Enviar</button>
+    <div id="result-delete"></div>
+    
+    <hr/>
+    <h2>Aula 11</h2>
+    <form hx-post="http://localhost:3000/upload"      hx-target="#result-upload" enctype="multipart/form-data">
+        <input type="file" name="arquivo" placeholder="Digite seu email">
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="result-upload"></div>
+    
+    <hr/>
+    <h2>Aula 12</h2>
+    <button id="getRequest" hx-get="http://localhost:3000/getData"      hx-target="#result-getData">
+    requisição get com Delay</button>
+    <button hx-post="http://localhost:3000/postData"     hx-target="#result-postData" hx-sync="#getRequest:queue">
+    requisição Post</button>
+    <div id="result-getData"></div>
+    <div id="result-postData"></div>
+
+    <hr/>
+    <h2>Aula 13</h2>
+    <button hx-get="http://localhost:3000/long-request"  hx-target="#result-long-request"
+    id="start-request">
+    Executar requisição longa</button>
+    <button onclick="htmx.trigger('#start-request','htmx:abort')">
+    Cancelar</button>
+    <div id="result-long-request"></div>
+
+</body>
+</html>

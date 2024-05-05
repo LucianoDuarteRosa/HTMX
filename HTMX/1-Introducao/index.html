@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World com HTMX</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <h1>Exemplo HTMC: Hello World</h1>
+    <!--Adionardor-->
+    <button hx-get="http://localhost:3000/Hello" hx-target="#hello-world-response">Diga Hello World</button>
+    <!--Exibição-->
+    <div id="hello-world-response"></div>
+
+</body>
+</html>

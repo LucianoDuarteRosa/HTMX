@@ -1,0 +1,19 @@
+#trigger-button {
+    display: none;
+}
+
+#div-revealed {
+    margin-top: 1000px;
+    width: 1000px;
+    height: 1000px;
+    background-color: blueviolet;
+}
+
+
+#load-indicator {
+    display: none;
+}
+
+#load-indicator.htmx-request {
+    display: block;
+}
